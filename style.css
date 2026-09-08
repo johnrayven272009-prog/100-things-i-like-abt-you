@@ -561,3 +561,10 @@ DESKTOP
         transform: rotate(0.7deg) translateY(-5px);
     }
 }
+
+#music-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
