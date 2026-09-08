@@ -655,3 +655,65 @@ DESKTOP
         line-height: 1.65;
     }
 }
+
+/* Final confession reveal */
+
+#final-intro,
+#confession-card {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#final-intro {
+    text-align: center;
+}
+
+#confession-card {
+    animation: confessionReveal 0.6s ease forwards;
+}
+
+@keyframes confessionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#reveal-btn {
+    margin-top: 10px;
+}
+
+.final-letter {
+    margin: 28px auto 24px;
+    padding: 20px;
+    max-width: 650px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(90, 60, 50, 0.12);
+    border-radius: 14px;
+}
+
+.final-letter p {
+    margin: 0 0 18px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.final-letter p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .final-letter {
+        padding: 16px;
+    }
+
+    .final-letter p {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+}
