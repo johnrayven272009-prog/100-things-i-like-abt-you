@@ -568,3 +568,35 @@ DESKTOP
     justify-content: center;
     text-decoration: none;
 }
+
+.final-letter {
+    margin: 28px auto 24px;
+    padding: 20px;
+    max-width: 650px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(90, 60, 50, 0.12);
+    border-radius: 14px;
+}
+
+.final-letter p {
+    margin: 0 0 18px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.final-letter p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+    .final-letter {
+        padding: 16px;
+        margin-top: 22px;
+    }
+
+    .final-letter p {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+}
