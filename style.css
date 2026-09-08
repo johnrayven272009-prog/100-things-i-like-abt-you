@@ -1,1 +1,451 @@
+/* =========================
+100 THINGS I LIKE ABOUT YOU
+Soft Scrapbook Theme
+========================= */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+:root {
+--cream: #fff9f5;
+--paper: #fffdfb;
+--pink: #e9a9ad;
+--dark-pink: #c97880;
+--brown: #5d4744;
+--light-brown: #927b76;
+--shadow: rgba(93, 71, 68, 0.12);
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+min-height: 100vh;
+background: var(--cream);
+color: var(--brown);
+font-family: "DM Sans", sans-serif;
+overflow-x: hidden;
+}
+
+/* =========================
+GENERAL
+========================= */
+
+.screen {
+min-height: 100vh;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 24px;
+position: relative;
+}
+
+.hidden {
+display: none !important;
+}
+
+/* =========================
+BACKGROUND DECORATIONS
+========================= */
+
+.decorations {
+position: fixed;
+inset: 0;
+pointer-events: none;
+overflow: hidden;
+z-index: 0;
+}
+
+.heart,
+.flower {
+position: absolute;
+color: var(--pink);
+opacity: 0.35;
+font-family: "Caveat", cursive;
+}
+
+.heart {
+font-size: 38px;
+}
+
+.flower {
+font-size: 25px;
+}
+
+.heart-1 {
+top: 10%;
+left: 8%;
+transform: rotate(-15deg);
+}
+
+.heart-2 {
+top: 25%;
+right: 8%;
+transform: rotate(20deg);
+}
+
+.heart-3 {
+bottom: 18%;
+left: 12%;
+transform: rotate(10deg);
+}
+
+.heart-4 {
+bottom: 8%;
+right: 15%;
+transform: rotate(-20deg);
+}
+
+.flower-1 {
+top: 12%;
+right: 20%;
+transform: rotate(15deg);
+}
+
+.flower-2 {
+bottom: 15%;
+right: 7%;
+transform: rotate(-15deg);
+}
+
+/* =========================
+INTRO SCREEN
+========================= */
+
+.intro-screen {
+z-index: 1;
+}
+
+.intro-card {
+width: min(100%, 430px);
+background: var(--paper);
+padding: 48px 30px;
+text-align: center;
+border-radius: 4px;
+box-shadow: 0 18px 45px var(--shadow);
+position: relative;
+transform: rotate(-1deg);
+}
+
+/* Tape effect */
+
+.intro-card::before {
+content: "";
+position: absolute;
+width: 90px;
+height: 25px;
+background: rgba(233, 169, 173, 0.35);
+top: -10px;
+left: 50%;
+transform: translateX(-50%) rotate(2deg);
+}
+
+.small-title {
+font-family: "Caveat", cursive;
+font-size: 20px;
+color: var(--dark-pink);
+margin-bottom: 12px;
+}
+
+.intro-card h1 {
+font-family: "Caveat", cursive;
+font-size: clamp(45px, 13vw, 68px);
+line-height: 0.95;
+font-weight: 600;
+margin-bottom: 25px;
+}
+
+.intro-card h1 span {
+color: var(--dark-pink);
+}
+
+.intro-text {
+font-size: 14px;
+line-height: 1.6;
+color: var(--light-brown);
+max-width: 270px;
+margin: 0 auto 30px;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+button {
+font-family: inherit;
+cursor: pointer;
+border: none;
+-webkit-tap-highlight-color: transparent;
+}
+
+.primary-btn {
+background: var(--dark-pink);
+color: white;
+padding: 13px 25px;
+border-radius: 30px;
+font-size: 14px;
+font-weight: 600;
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(201, 120, 128, 0.25);
+}
+
+.primary-btn:active {
+transform: scale(0.96);
+}
+
+.secondary-btn {
+background: transparent;
+color: var(--brown);
+border: 1px solid rgba(93, 71, 68, 0.2);
+padding: 11px 18px;
+border-radius: 25px;
+font-size: 13px;
+transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+background: white;
+}
+
+.secondary-btn:active {
+transform: scale(0.95);
+}
+
+.secondary-btn:disabled {
+opacity: 0.3;
+cursor: not-allowed;
+}
+
+/* =========================
+LIST SCREEN
+========================= */
+
+.list-screen {
+flex-direction: column;
+z-index: 1;
+padding-top: 20px;
+}
+
+.top-bar {
+position: absolute;
+top: 25px;
+left: 25px;
+right: 25px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.little-note {
+font-family: "Caveat", cursive;
+font-size: 21px;
+color: var(--dark-pink);
+}
+
+.icon-btn {
+width: 42px;
+height: 42px;
+border-radius: 50%;
+background: white;
+color: var(--dark-pink);
+box-shadow: 0 5px 18px var(--shadow);
+font-size: 20px;
+transition: transform 0.2s ease;
+}
+
+.icon-btn:active {
+transform: scale(0.9);
+}
+
+/* =========================
+THING CARD
+========================= */
+
+.things-container {
+width: min(100%, 430px);
+text-align: center;
+}
+
+.thing-card {
+background: var(--paper);
+min-height: 390px;
+padding: 45px 30px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+box-shadow: 0 18px 45px var(--shadow);
+position: relative;
+border-radius: 3px;
+transform: rotate(0.7deg);
+}
+
+/* Small paper tape */
+
+.thing-card::before {
+content: "";
+position: absolute;
+width: 75px;
+height: 22px;
+background: rgba(233, 169, 173, 0.3);
+top: -9px;
+left: 50%;
+transform: translateX(-50%) rotate(-2deg);
+}
+
+.card-number {
+font-family: "Caveat", cursive;
+font-size: 28px;
+color: var(--dark-pink);
+margin-bottom: 25px;
+}
+
+.card-content {
+max-width: 330px;
+}
+
+.card-content p {
+font-family: "Caveat", cursive;
+font-size: clamp(31px, 8vw, 43px);
+line-height: 1.15;
+font-weight: 500;
+}
+
+.card-heart {
+margin-top: 35px;
+font-size: 27px;
+color: var(--pink);
+}
+
+/* =========================
+CARD TRANSITION
+========================= */
+
+.card-exit {
+animation: cardExit 0.25s ease forwards;
+}
+
+.card-enter {
+animation: cardEnter 0.35s ease forwards;
+}
+
+@keyframes cardExit {
+from {
+opacity: 1;
+transform: translateX(0) rotate(0.7deg);
+}
+
+to {
+    opacity: 0;
+    transform: translateX(-30px) rotate(-2deg);
+}
+
+}
+
+@keyframes cardEnter {
+from {
+opacity: 0;
+transform: translateX(30px) rotate(2deg);
+}
+
+to {
+    opacity: 1;
+    transform: translateX(0) rotate(0.7deg);
+}
+
+}
+
+/* =========================
+NAVIGATION
+========================= */
+
+.navigation {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 14px;
+margin-top: 25px;
+}
+
+#progress {
+font-family: "Caveat", cursive;
+font-size: 19px;
+color: var(--light-brown);
+min-width: 65px;
+}
+
+/* =========================
+FINAL SCREEN
+========================= */
+
+.final-screen {
+z-index: 1;
+}
+
+.final-card {
+width: min(100%, 430px);
+background: var(--paper);
+padding: 50px 30px;
+text-align: center;
+box-shadow: 0 18px 45px var(--shadow);
+transform: rotate(-0.7deg);
+}
+
+.final-number {
+font-family: "Caveat", cursive;
+font-size: 55px;
+color: var(--dark-pink);
+}
+
+.final-card h2 {
+font-family: "Caveat", cursive;
+font-size: 48px;
+margin: 10px 0 20px;
+}
+
+.final-divider {
+color: var(--pink);
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+.final-message {
+font-family: "Caveat", cursive;
+font-size: 25px;
+line-height: 1.35;
+margin-bottom: 30px;
+}
+
+/* =========================
+DESKTOP
+========================= */
+
+@media (min-width: 700px) {
+
+.intro-card {
+    padding: 60px 50px;
+}
+
+.thing-card {
+    min-height: 450px;
+    padding: 60px 50px;
+}
+
+.card-content p {
+    font-size: 46px;
+}
+
+.heart {
+    font-size: 48px;
+}
+
+  }
