@@ -116,7 +116,7 @@ const things = [
 
 
 // =========================
-// GET ELEMENTS
+// ELEMENTS
 // =========================
 
 const introScreen = document.getElementById("intro-screen");
@@ -132,6 +132,7 @@ const thingCard = document.getElementById("thing-card");
 const currentNumber = document.getElementById("current-number");
 const thingText = document.getElementById("thing-text");
 const progress = document.getElementById("progress");
+
 const photoContainer = document.getElementById("photo-container");
 const thingPhoto = document.getElementById("thing-photo");
 
@@ -140,7 +141,7 @@ const music = document.getElementById("background-music");
 
 
 // =========================
-// CURRENT ITEM
+// STATE
 // =========================
 
 let currentIndex = 0;
@@ -151,45 +152,52 @@ let currentIndex = 0;
 // =========================
 
 const photos = {
-    // 1: "photos/smile.jpg",
-    // 15: "photos/us.jpg",
-    // 29: "photos/moment.jpg",
-    // 50: "photos/food.jpg",
+    1: "photos/smile.jpg",
+    15: "photos/memory.jpg",
+    29: "photos/us.jpg",
+    50: "photos/food.jpg"
 };
 
 
 // =========================
-// DISPLAY ITEM
+// DISPLAY
 // =========================
 
 function displayThing() {
-    currentNumber.textContent = String(currentIndex + 1).padStart(2, "0");
 
-    thingText.textContent = things[currentIndex];
+    currentNumber.textContent =
+        String(currentIndex + 1).padStart(2, "0");
 
-    progress.textContent = `${currentIndex + 1} / ${things.length}`;
+    thingText.textContent =
+        things[currentIndex];
 
-    prevBtn.disabled = currentIndex === 0;
+    progress.textContent =
+        `${currentIndex + 1} / ${things.length}`;
 
-    if (currentIndex === things.length - 1) {
-        nextBtn.textContent = "finish ♡";
-    } else {
-        nextBtn.textContent = "next →";
-    }
+    prevBtn.disabled =
+        currentIndex === 0;
 
-    // =========================
-    // PHOTO HANDLING
-    // =========================
+    nextBtn.textContent =
+        currentIndex === things.length - 1
+            ? "finish ♡"
+            : "next →";
+
+
+    // PHOTO
 
     const photo = photos[currentIndex + 1];
 
     if (photo) {
+
         thingPhoto.src = photo;
-        thingPhoto.alt = `Photo for number ${currentIndex + 1}`;
+        thingPhoto.alt =
+            `Photo for number ${currentIndex + 1}`;
 
         photoContainer.classList.remove("hidden");
         thingCard.classList.add("has-photo");
+
     } else {
+
         thingPhoto.src = "";
         thingPhoto.alt = "";
 
@@ -200,18 +208,22 @@ function displayThing() {
 
 
 // =========================
-// CARD ANIMATION
+// CHANGE CARD
 // =========================
 
-function changeCard(direction = "next") {
-    thingCard.classList.remove("card-enter", "card-exit");
+function changeCard(direction) {
 
-    // Force animation restart
+    thingCard.classList.remove(
+        "card-enter",
+        "card-exit"
+    );
+
     void thingCard.offsetWidth;
 
     thingCard.classList.add("card-exit");
 
     setTimeout(() => {
+
         if (direction === "next") {
             currentIndex++;
         } else {
@@ -225,33 +237,13 @@ function changeCard(direction = "next") {
         void thingCard.offsetWidth;
 
         thingCard.classList.add("card-enter");
+
     }, 220);
 }
 
-    // =========================
-    // PHOTO HANDLING
-    // =========================
-
-    const photo = photos[currentIndex + 1];
-
-    if (photo) {
-        thingPhoto.src = photo;
-        thingPhoto.alt = `Photo for number ${currentIndex + 1}`;
-
-        photoContainer.classList.remove("hidden");
-        thingCard.classList.add("has-photo");
-    } else {
-        thingPhoto.src = "";
-        thingPhoto.alt = "";
-
-        photoContainer.classList.add("hidden");
-        thingCard.classList.remove("has-photo");
-    }
-        }
-
 
 // =========================
-// OPEN WEBSITE
+// OPEN
 // =========================
 
 openBtn.addEventListener("click", () => {
@@ -267,6 +259,7 @@ openBtn.addEventListener("click", () => {
         listScreen.classList.add("fade-in");
 
         currentIndex = 0;
+
         displayThing();
 
         setTimeout(() => {
@@ -276,8 +269,9 @@ openBtn.addEventListener("click", () => {
     }, 500);
 });
 
+
 // =========================
-// NEXT BUTTON
+// NEXT
 // =========================
 
 nextBtn.addEventListener("click", () => {
@@ -301,12 +295,12 @@ nextBtn.addEventListener("click", () => {
 
 
 // =========================
-// PREVIOUS BUTTON
+// PREVIOUS
 // =========================
 
 prevBtn.addEventListener("click", () => {
 
-    if (currentIndex === 0) {
+    if (currentIndex <= 0) {
         return;
     }
 
@@ -341,25 +335,37 @@ restartBtn.addEventListener("click", () => {
 
 musicBtn.addEventListener("click", () => {
 
-    // Don't do anything until a music file is added
-    if (!music.src || music.querySelector("source").getAttribute("src") === "") {
+    const source = music.querySelector("source");
+
+    if (!source || !source.getAttribute("src")) {
         return;
     }
 
     if (music.paused) {
+
         music.play();
+
         musicBtn.textContent = "♫";
-        musicBtn.setAttribute("aria-label", "Pause music");
+        musicBtn.setAttribute(
+            "aria-label",
+            "Pause music"
+        );
+
     } else {
+
         music.pause();
+
         musicBtn.textContent = "♪";
-        musicBtn.setAttribute("aria-label", "Play music");
+        musicBtn.setAttribute(
+            "aria-label",
+            "Play music"
+        );
     }
 });
 
 
 // =========================
-// KEYBOARD SUPPORT
+// KEYBOARD
 // =========================
 
 document.addEventListener("keydown", (event) => {
@@ -379,7 +385,7 @@ document.addEventListener("keydown", (event) => {
 
 
 // =========================
-// INITIAL LOAD
+// START
 // =========================
 
 displayThing();
