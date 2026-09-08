@@ -287,10 +287,17 @@ openBtn.addEventListener("click", () => {
 
 nextBtn.addEventListener("click", () => {
 
-    // If we're currently on #100
     if (currentIndex === things.length - 1) {
+
         listScreen.classList.add("hidden");
+
         finalScreen.classList.remove("hidden");
+        finalScreen.classList.add("final-reveal");
+
+        setTimeout(() => {
+            finalScreen.classList.remove("final-reveal");
+        }, 800);
+
         return;
     }
 
