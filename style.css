@@ -562,11 +562,66 @@ DESKTOP
     }
 }
 
-#music-btn {
+.music-player {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 15px;
+
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(90, 60, 50, 0.15);
+    border-radius: 14px;
+
     text-decoration: none;
+    color: inherit;
+
+    box-shadow: 0 4px 12px rgba(70, 45, 35, 0.08);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.music-player:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(70, 45, 35, 0.12);
+}
+
+.music-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.music-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.music-label {
+    font-family: "Caveat", cursive;
+    font-size: 1rem;
+    line-height: 1.1;
+}
+
+.music-action {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.7rem;
+    opacity: 0.65;
+    margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+    .music-player {
+        padding: 9px 12px;
+    }
+
+    .music-label {
+        font-size: 0.9rem;
+    }
+
+    .music-action {
+        font-size: 0.65rem;
+    }
 }
 
 .final-letter {
