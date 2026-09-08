@@ -1,1 +1,136 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fdf4f3"><title>100 Things I Like About You ♡</title>
 
+<link rel="stylesheet" href="style.css">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+</head><body><!-- Background decorations -->
+<div class="decorations" aria-hidden="true">
+    <span class="heart heart-1">♡</span>
+    <span class="heart heart-2">♡</span>
+    <span class="heart heart-3">♡</span>
+    <span class="heart heart-4">♡</span>
+    <span class="flower flower-1">✿</span>
+    <span class="flower flower-2">✿</span>
+</div>
+
+<!-- Opening Screen -->
+<main id="intro-screen" class="screen intro-screen">
+
+    <div class="intro-card">
+
+        <p class="small-title">a little something for you</p>
+
+        <h1>
+            100 Things<br>
+            <span>I Like About You</span>
+        </h1>
+
+        <p class="intro-text">
+            I could probably list more than 100,
+            but let's start here.
+        </p>
+
+        <button id="open-btn" class="primary-btn">
+            open ♡
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- Main List -->
+<main id="list-screen" class="screen list-screen hidden">
+
+    <div class="top-bar">
+        <button id="music-btn" class="icon-btn" aria-label="Play music">
+            ♪
+        </button>
+
+        <span class="little-note">for you ♡</span>
+    </div>
+
+    <section class="things-container">
+
+        <div id="thing-card" class="thing-card">
+
+            <div class="card-number">
+                <span id="current-number">01</span>
+            </div>
+
+            <div class="card-content">
+                <p id="thing-text">
+                    I like your smile.
+                </p>
+            </div>
+
+            <div class="card-heart">♡</div>
+
+        </div>
+
+        <div class="navigation">
+
+            <button id="prev-btn" class="secondary-btn" disabled>
+                ←
+            </button>
+
+            <span id="progress">1 / 100</span>
+
+            <button id="next-btn" class="primary-btn next-btn">
+                next →
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- Final Screen -->
+<main id="final-screen" class="screen final-screen hidden">
+
+    <div class="final-card">
+
+        <p class="final-number">100</p>
+
+        <h2>
+            I like you, Jil.
+        </h2>
+
+        <div class="final-divider">♡</div>
+
+        <p class="final-message">
+            And after writing all of this,
+            I still feel like 100 isn't enough
+            to explain why I like you.
+        </p>
+
+        <button id="restart-btn" class="secondary-btn">
+            read again ↻
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- Music -->
+<!-- We'll add your music file here later. -->
+<audio id="background-music" loop>
+    <source src="" type="audio/mpeg">
+</audio>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
