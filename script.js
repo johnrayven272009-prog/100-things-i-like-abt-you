@@ -132,6 +132,8 @@ const thingCard = document.getElementById("thing-card");
 const currentNumber = document.getElementById("current-number");
 const thingText = document.getElementById("thing-text");
 const progress = document.getElementById("progress");
+const photoContainer = document.getElementById("photo-container");
+const thingPhoto = document.getElementById("thing-photo");
 
 const musicBtn = document.getElementById("music-btn");
 const music = document.getElementById("background-music");
