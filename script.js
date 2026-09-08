@@ -389,3 +389,15 @@ document.addEventListener("keydown", (event) => {
 // =========================
 
 displayThing();
+
+// Final confession reveal
+const revealBtn = document.getElementById("reveal-btn");
+const finalIntro = document.getElementById("final-intro");
+const confessionCard = document.getElementById("confession-card");
+
+if (revealBtn) {
+    revealBtn.addEventListener("click", () => {
+        finalIntro.classList.add("hidden");
+        confessionCard.classList.remove("hidden");
+    });
+}
