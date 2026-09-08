@@ -218,20 +218,15 @@ function changeCard(direction = "next") {
             currentIndex--;
         }
 
-        function displayThing() {
-    currentNumber.textContent = String(currentIndex + 1).padStart(2, "0");
+        displayThing();
 
-    thingText.textContent = things[currentIndex];
+        thingCard.classList.remove("card-exit");
 
-    progress.textContent = `${currentIndex + 1} / ${things.length}`;
+        void thingCard.offsetWidth;
 
-    prevBtn.disabled = currentIndex === 0;
-
-    if (currentIndex === things.length - 1) {
-        nextBtn.textContent = "finish ♡";
-    } else {
-        nextBtn.textContent = "next →";
-    }
+        thingCard.classList.add("card-enter");
+    }, 220);
+}
 
     // =========================
     // PHOTO HANDLING
