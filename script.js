@@ -147,6 +147,18 @@ let currentIndex = 0;
 
 
 // =========================
+// PHOTOS
+// =========================
+
+const photos = {
+    // 1: "photos/smile.jpg",
+    // 15: "photos/us.jpg",
+    // 29: "photos/moment.jpg",
+    // 50: "photos/food.jpg",
+};
+
+
+// =========================
 // DISPLAY ITEM
 // =========================
 
@@ -186,15 +198,41 @@ function changeCard(direction = "next") {
             currentIndex--;
         }
 
-        displayThing();
+        function displayThing() {
+    currentNumber.textContent = String(currentIndex + 1).padStart(2, "0");
 
-        thingCard.classList.remove("card-exit");
+    thingText.textContent = things[currentIndex];
 
-        void thingCard.offsetWidth;
+    progress.textContent = `${currentIndex + 1} / ${things.length}`;
 
-        thingCard.classList.add("card-enter");
-    }, 220);
-}
+    prevBtn.disabled = currentIndex === 0;
+
+    if (currentIndex === things.length - 1) {
+        nextBtn.textContent = "finish ♡";
+    } else {
+        nextBtn.textContent = "next →";
+    }
+
+    // =========================
+    // PHOTO HANDLING
+    // =========================
+
+    const photo = photos[currentIndex + 1];
+
+    if (photo) {
+        thingPhoto.src = photo;
+        thingPhoto.alt = `Photo for number ${currentIndex + 1}`;
+
+        photoContainer.classList.remove("hidden");
+        thingCard.classList.add("has-photo");
+    } else {
+        thingPhoto.src = "";
+        thingPhoto.alt = "";
+
+        photoContainer.classList.add("hidden");
+        thingCard.classList.remove("has-photo");
+    }
+        }
 
 
 // =========================
