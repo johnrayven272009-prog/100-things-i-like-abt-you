@@ -176,6 +176,26 @@ function displayThing() {
     } else {
         nextBtn.textContent = "next →";
     }
+
+    // =========================
+    // PHOTO HANDLING
+    // =========================
+
+    const photo = photos[currentIndex + 1];
+
+    if (photo) {
+        thingPhoto.src = photo;
+        thingPhoto.alt = `Photo for number ${currentIndex + 1}`;
+
+        photoContainer.classList.remove("hidden");
+        thingCard.classList.add("has-photo");
+    } else {
+        thingPhoto.src = "";
+        thingPhoto.alt = "";
+
+        photoContainer.classList.add("hidden");
+        thingCard.classList.remove("has-photo");
+    }
 }
 
 
@@ -240,13 +260,26 @@ function changeCard(direction = "next") {
 // =========================
 
 openBtn.addEventListener("click", () => {
-    introScreen.classList.add("hidden");
-    listScreen.classList.remove("hidden");
 
-    currentIndex = 0;
-    displayThing();
+    introScreen.classList.add("fade-out");
+
+    setTimeout(() => {
+
+        introScreen.classList.add("hidden");
+        introScreen.classList.remove("fade-out");
+
+        listScreen.classList.remove("hidden");
+        listScreen.classList.add("fade-in");
+
+        currentIndex = 0;
+        displayThing();
+
+        setTimeout(() => {
+            listScreen.classList.remove("fade-in");
+        }, 600);
+
+    }, 500);
 });
-
 
 // =========================
 // NEXT BUTTON
